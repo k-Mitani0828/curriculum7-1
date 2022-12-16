@@ -14,10 +14,12 @@
     <body class="antialiased">
         <h1>Blog Name</h1>
         <div class='posts'>
-            <div class='post'>
+            @foreach($posts as $post)
+             <div class='post'>
                 <h2 class='title'>Title</h2>
-                <p class='body'>This is sample body</p>
-            </div>
+                <p class='body'>{{ $post->body }}</p>
+             </div>
+            @endforeach
         </div>
 
            
