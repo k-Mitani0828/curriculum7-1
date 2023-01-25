@@ -18,6 +18,7 @@
             @foreach($posts as $post)
              <div class='post'>
                 <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
+
                 <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
              <p class='body'>{{ $post->body }}</p>
 <!-- 以下を追記 -->
@@ -25,6 +26,7 @@
     @csrf
     @method('DELETE')
     <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+
              </div>
             @endforeach
         </div>
@@ -37,8 +39,10 @@
             document.getElementById(`form_${id}`).submit();
         }
     }
+
 </script>
 
 </form>
+
     </body>
 </html>
