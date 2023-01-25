@@ -58,7 +58,7 @@ public function update(PostRequest $request,Post $post)
 
 }
   
-{
+
 public function delete(Post $post)
 
 {
