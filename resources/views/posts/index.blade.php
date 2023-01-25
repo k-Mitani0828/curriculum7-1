@@ -18,14 +18,15 @@
             @foreach($posts as $post)
              <div class='post'>
                 <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
-                <p class='body'>{{ $post->body }}</p>
-                
-                <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
-                     @csrf
-                     @method('DELETE')
-                     <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
-                </form>
-                
+
+                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+             <p class='body'>{{ $post->body }}</p>
+<!-- 以下を追記 -->
+<form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+    @csrf
+    @method('DELETE')
+    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+
              </div>
             @endforeach
         </div>
@@ -38,6 +39,10 @@
             document.getElementById(`form_${id}`).submit();
         }
     }
-       </script>
+
+</script>
+
+</form>
+
     </body>
 </html>
