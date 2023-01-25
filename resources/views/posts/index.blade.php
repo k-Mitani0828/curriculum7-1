@@ -1,3 +1,6 @@
+<x-app-layout>
+    <x-slot name="header">
+        headername</x-slot>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -41,8 +44,10 @@
     }
 
 </script>
-
+{{ Auth::user()->name }}
 </form>
 
     </body>
 </html>
+
+</x-app-layout>
